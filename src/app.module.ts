@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Subscription } from './entities/subscription.entity';
 import { SubscriptionService } from './services/subscription.service';
+import { WeatherService } from './services/weather.service';
 
 @Module({
   imports: [
@@ -31,6 +32,6 @@ import { SubscriptionService } from './services/subscription.service';
     TypeOrmModule.forFeature([Subscription])
   ],
   controllers: [AppController],
-  providers: [AppService, SubscriptionService],
+  providers: [AppService, SubscriptionService, WeatherService],
 })
 export class AppModule {}
