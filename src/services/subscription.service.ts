@@ -63,4 +63,14 @@ export class SubscriptionService {
 		await this.subscriptionRepository.delete(subscription.id);
 		return { success: true };
   }
+
+	public async getAllSubscribers(frequency: string): Promise<Subscription[]> {
+		const subscriptions = await this.subscriptionRepository.find({
+			where: {
+				confirmed: true,
+				frequency
+			}
+		});
+		return subscriptions;
+	}
 }

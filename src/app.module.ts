@@ -7,10 +7,12 @@ import { SubscriptionService } from './services/subscription.service';
 import { WeatherService } from './services/weather.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { NewMailerService } from './services/mailer-service';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    ScheduleModule.forRoot(),
     MailerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
